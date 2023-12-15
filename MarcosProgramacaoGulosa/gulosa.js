@@ -22,18 +22,16 @@ function encontrarMaiorPremio(N, D, numero) {
 }
 
 function processarCasos() {
-console.log('--------')
-console.log("Digite 0 0 para sair")
-  rl.on('line', (linha) => {
+  rl.question('', (linha) => {
     const [N, D] = linha.split(' ').map(Number);
     
     if (N === 0 && D === 0) {
       rl.close();
     } else {
-      rl.once('line', (numero) => {
+      rl.question('', (numero) => {
         const maiorPremio = encontrarMaiorPremio(N, D, numero.trim());
         console.log(maiorPremio);
-        processarCasos();
+        processarCasos(); // Chama recursivamente para processar mais casos
       });
     }
   });
