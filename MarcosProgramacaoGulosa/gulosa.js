@@ -22,7 +22,7 @@ function encontrarMaiorPremio(N, D, numero) {
 }
 
 function processarCasos() {
-  rl.question('', (linha) => {
+  rl.on('line', (linha) => {
     const [N, D] = linha.split(' ').map(Number);
     
     if (N === 0 && D === 0) {
